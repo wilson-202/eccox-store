@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="./regex.js"></script>
+    <script>
+     
+        console.log('----------------------------------------')
+        const root = document.getElementById('root')
+        let pattern1 = /To/
+        let sentence1 = 'welcome to Regex'
+        let result1 = pattern1.test(sentence1)
+        console.log(result1)
+        // digit /d
+        const pattern4 = /\d+/g
+        let sentence3 = 'i have 12 - - red 53 blue colors';
+        let result3 = sentence3.match(pattern4)
+        console.log(result3)
+        let pattern5 = /\D+/g
+        result3 = sentence3.match(pattern5)
+        console.log(result3)
+        pattern5 = /b.{2}e/
+        result3 = sentence3.match(pattern5)
+        console.log(result3)
+
+        // alphanumeric
+        let pattern6 = /\w/g
+        result3 = sentence3.match(pattern6)
+        console.log(result3)
+
+        pattern6 = /\w+/g
+        result3 = sentence3.match(pattern6)
+        console.log(result3)
+
+        // /s spacetab
+        let pattern7 = /\s/
+        result3 = sentence3.match(pattern7)
+        console.log(result3)
+
+        // strictly 9
+        let patten8 = /^\w{9}$/.test('1234hello')
+        console.log(patten8)
+        //    between 5 or 9
+        patten8 = /^\w{5,9}$/.test('1234llo')
+        console.log(patten8)
+        //    9 or more
+        patten8 = /^\w{9,}$/.test('1234llogjfkjef')
+        console.log(patten8)
+
+        //    []
+        let patten9 = /[a-zA-Z0-9_.]+/g
+        result3 = patten9.test(sentence3)
+        console.log(result3)
+
+
+        let sentence4 = ' this is abunch of cat and dog'
+        // cat or dog
+        let p1 = /(cat|dog)/
+        result3 = p1.test(sentence4)
+        console.log(result3)
+        p1 = /(catdog)+/g
+        result3 = sentence4.match(p1)
+        console.log(result3)
+
+        // replace
+        let res = 'hello world'.replace(/world/, 'friend')
+        console.log(res)
+
+
+        res = 'cat cat cat '.replace(/cat/, 'dog')
+        console.log(res)
+        res = 'cat cat cat '.replace(/cat/g, 'dog')
+        console.log(res)
+        res = 'cat cat cat cow cow '.replace(/(cat|cow)/g, 'dog')
+        console.log(res)
+        res = 'a1b2c3'.replace(/\d/g, '*')
+        console.log(res)
+
+
+        let pat = /(\d{3})(\d{3})(\d{4})/
+        let sent = '1234567890'
+        let ress = sent.match(pat)
+        console.log(ress)
+
+        '555-1234'.replace(/(\d{3})-(\d{4})/, '$2-$1')
+
+        // wont work if the numbers are not enough
+
+        let res2 = '5551234565'.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3')
+        console.log(res2)
+
+        res2 = 'a1b2c3d4'.replace(/\d/g, (match) => match * 2)
+        console.log(res2)
+
+
+        //   exec
+        let re = /(\d{3})-(\d{4})/
+        res = re.exec('call 555-1234')
+        console.log(res)
+
+        //   matchall
+        const textt = 'a1 b22 c333'
+        for (const m of textt.matchAll(/([a-z])(\d+)/g)) {
+            console.log(m[0], m[1], m[2])
+        }
+
+
+        res = 'one,two;three four'.split(/[,; ]/)
+        console.log(res)
+        res = 'hello world'.search(/world/)
+        console.log(res)
+    </script>
+</body>
+
+</html>
