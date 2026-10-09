@@ -119,6 +119,9 @@ input::-ms-clear {
 @utility absolute-center{
   @apply absolute translate-x-[-50%]  left-[50%] 
 }
+@utility click-transis{
+  @apply active:scale-90 duration-200 transition-all ease-in-out
+}
 @font-face {
   font-family: 'CustomFont';
   src: url('../src/font/DMSans-Italic-VariableFont_opsz\,wght.ttf') format('truetype');

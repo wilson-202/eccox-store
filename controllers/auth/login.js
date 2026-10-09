@@ -27,7 +27,11 @@ class ForLogin {
       if (verificationCheck.rows.length > 0) {
         return res.status(403).json({ error: "Account not verified check your Email to login" });
       } else {
-        res.status(200).send("welcome");
+        const user = {
+          userId: verificationCheck.userId
+        }
+        req.session.user = user;
+        res.status(200);
       }
     } catch (error) {
       const errMsg = error.message || error.messages;
