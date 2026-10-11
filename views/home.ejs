@@ -8,7 +8,7 @@
   <title>eccox-store</title>
 </head>
 
-<body class="w-full h-full bg-gray-200"
+<body data-logged-in="<%= !!(locals.user && locals.user.userId) %>" class="w-full h-full bg-gray-200"
   style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
   <header class=" w-full relative flex justify-center  flex-col items-center md:py-1">
     <section
@@ -91,7 +91,8 @@
 
 
         </div>
-        <div id="homeOrdersBtn" class="md:flex click-transis cursor-pointer flex-col justify-center hidden items-center  ">
+        <div id="homeOrdersBtn"
+          class="md:flex click-transis cursor-pointer flex-col justify-center hidden items-center  ">
           <svg class="size-7 text-stone-700" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             viewBox="0 0 16 16">
             <path d="M0 0h16v16H0z" fill="none" />
@@ -101,8 +102,7 @@
           <p class="text-sm capitalize">orders</p>
 
         </div>
-        <div id="homeCartBtn"
-          class="click-transis  cursor-pointer flex justify-center flex-col items-center">
+        <div id="homeCartBtn" class="click-transis  cursor-pointer flex justify-center flex-col items-center">
           <div class="bg-gray-500 rounded-4xl size-2.5 translate-x-3"></div>
           <svg class="size-7 max-md:hidden text-stone-500" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
             viewBox="0 0 32 32">
@@ -168,375 +168,390 @@
   <section id="smMore" class="fixed hidden z-20 inset-0 bg-black border-2">
 
   </section>
-  <section class="w-full mt-[3%] px-[3%] h-80 hidden " id="cartMenu">
-    <div class="w-full h-full rounded-4xl bg-white">
-      <div>
-        your Eccox cart is empty
+  <% if (!locals.user || !user.userId) { %>
+
+    <section class="w-full mt-[3%] px-[3%] h-80 hidden " id="cartMenu">
+      <div class="w-full h-full rounded-4xl bg-white">
+        <div>
+          your Eccox cart is empty
+        </div>
+        <p>shop todays deal</p>
+        <div>
+          <button class="w-fit h-fit px-3 py-2 border-2 rounded-4xl">signin to your account</button>
+          <button class="w-fit h-fit px-3 py-2 border-2 rounded-4xl">sign up</button>
+        </div>
       </div>
-      <p>shop todays deal</p>
-      <div>
-        <button class="w-fit h-fit px-3 py-2 border-2 rounded-4xl">signin to your account</button>
-        <button class="w-fit h-fit px-3 py-2 border-2 rounded-4xl">sign up</button>
-      </div>
-    </div>
-  </section>
-  <main class="w-full mt-[2%] flex flex-col gap-3.5 h-full">
-    <section class="flex w-full px-[3%] gap-8 py-2 justify-center items-center">
-      <div id="heroSec"
-        class="md:h-130 h-60 w-full group  overflow-hidden flex border relative z-10 border-gray-300 justify-center items-center rounded-2xl bg-white">
-
-
-        <div id="prev"
-          class="p-1.5 z-40 hidden max-md:group-hover:hidden group-hover:block absolute rounded-3xl left-2.5  top-[45%] transition-all duration-200 active:scale-90 border-gray-200/70 border-2 hover:bg-gray-200 bg-gray-200/50 backdrop-blur-md ">
-          <svg class="size-6 rotate-90 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-            viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="m6 10l6 6l6-6" />
-          </svg>
-
-        </div>
-        <div id="next"
-          class="p-1.5 z-40 hidden group-hover:block max-md:group-hover:hidden absolute rounded-3xl right-3.5 top-[45%] transition-all duration-200 active:scale-90 border-gray-200/70 border-2 hover:bg-gray-200 bg-gray-200/50 backdrop-blur-md ">
-          <svg class="size-6 -rotate-90 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-            viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="m6 10l6 6l6-6" />
-          </svg>
-
-        </div>
-        <div id="dots"
-          class="  absolute border flex justify-center cursor-pointer bg-gray-300/40 p-0.5 border-gray-300 rounded-4xl backdrop-blur-2xl items-center gap-2 md:bottom-3 bottom-[3%]  max-md:translate-x-[-50%]  left-[50%] ">
-        </div>
-        <div class="absolute slide  flex  inset-0">
-
-          <div class=" h-full  flex items-center   w-[40%]">
-            <section class=" flex flex-col gap-2 pl-13 w-full">
-              <div>
-                <p class="text-stone-600 font-medium capitalize">the next generation</p>
-              </div>
-              <div class="">
-                <h1 class="capitalize font-semibold text-5xl"
-                  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">power your
-                  everyday</h1>
-              </div>
-              <div class="text-[15px] my-2 text-stone-800"
-                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-
-                <p>
-                  Experience ultimate performnce. Explore our curated selection of flagship smartphones, built for speed
-                  and engineered to last.
-              </div>
-              <div>
-                <button
-                  class="px-5 cursor-pointer active:scale-90 transition-all duration-200 bg-fuchsia-700 shadow-inner shadow-fuchsia-800 my-3 text-white capitalize font-medium py-2.5 rounded-4xl">view
-                  offers</button>
-              </div>
-            </section>
-          </div>
-          <div class="h-full w-[60%] ">
-            <img class="w-full h-full  object-contain" src="0d952da6-1548-43ab-adf9-61054dd6147b (1).webp" alt="">
-          </div>
-        </div>
-
-        <!--  -->
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-        <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
-      </div>
-
     </section>
 
-    <section class=" mx-[3%] rounded-2xl  gap-2 flex flex-col bg-fuchsia-200 pt-2 ">
-      <h1 class="text-black/80 ml-3 font-bold text-2xl text-nowrap text-ellipsis">All Your Essentials</h1>
+    <% } %>
+      <main class="w-full mt-[2%] flex flex-col gap-3.5 h-full">
+        <section class="flex w-full px-[3%] gap-8 py-2 justify-center items-center">
+          <div id="heroSec"
+            class="md:h-130 h-60 w-full group  overflow-hidden flex border relative z-10 border-gray-300 justify-center items-center rounded-2xl bg-white">
 
-      <div
-        class="md:flex grid grid-cols-3  justify-between max-md:flex-wrap rounded-2xl p-4 bg-fuchsia-200   w-full items-center gap-3 md:gap-4">
-        <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
-        <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
-        <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
-        <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
-        <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
-        <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
-      </div>
 
-    </section>
-    <section class=" w-full  px-[3%]">
-      <div class=" w-full flex  h-100  pb-4 bg-fuchsia-300 flex-col justify-center items-center  rounded-2xl">
-
-        <div class=" flex justify-between  md:items-center items-start max-md:pt-2  px-4 h-[20%] md:h-[30%] w-full">
-          <div>
-            <h1 class="capitalize text-3xl text-white font-semibold">new arrivals</h1>
-
-          </div>
-          <div
-            class="w-fit   px-6 md:px-4 py-2 h-fit rounded-4xl bg-fuchsia-600 shadow-inner shadow-fuchsia-700 capitalize text-white font-medium text-lg">
-            <a href="#" class="flex justify-center items-center gap-2">
-              <span class="hidden md:inline">see more</span>
-              <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <div id="prev"
+              class="p-1.5 z-40 hidden max-md:group-hover:hidden group-hover:block absolute rounded-3xl left-2.5  top-[45%] transition-all duration-200 active:scale-90 border-gray-200/70 border-2 hover:bg-gray-200 bg-gray-200/50 backdrop-blur-md ">
+              <svg class="size-6 rotate-90 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M5 12h14m-6 6l6-6m-6-6l6 6" />
+                  d="m6 10l6 6l6-6" />
               </svg>
 
-            </a>
-          </div>
-        </div>
-        <div
-          class=" h-[80%] md:h-[70%] w-full  flex flex-nowrap  px-3 overflow-x-scroll  scrollbar-none snap-x scroll-smooth snap-mandatory  gap-3">
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-          <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- about -->
-
-    <section class="flex flex-col gap-3.5 h-150 px-[3%]">
-      <div class="w-full  rounded-2xl bg-white h-1/2"></div>
-      <div class="w-full border rounded-2xl h-1/2"></div>
-    </section>
-  </main>
-  <footer class="w-full max-md:min-h-80 max-md:h-fit h-80 px-[5%] bg-[#2e1e30] mt-3">
-    <div class="w-full h-full flex gap-2 flex-col py-3">
-      <div class="flex h-[80%] w-full gap-4">
-        <div class=" flex max-md:flex-col gap-4 w-full md:w-[68%]">
-          <div
-            class="footerBoxChild max-md:flex-col md:w-[15%] w-full max-md:border-b border-fuchsia-200 flex  md:flex-col md:justify-center justify-between">
-            <section class="w-full flex justify-between items-center ">
-              <p class="text-sm font-medium mt-2 mb-6 capitalize text-white">explore</p>
-              <div
-                class="transition-all ease-in-out  duration-200 max-md:flex hidden  justify-center items-center text-white">
-                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="m4 9l8 8l8-8" />
-                </svg>
-
-              </div>
-            </section>
-            <ul
-              class="boxChild max-md:text-gray-200  max-md:w-fit max-md:pl-4 text-white max-md:hidden font-medium flex flex-col text-sm gap-2.5">
-              <li><a href="#">Sales home</a></li>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Category</a></li>
-            </ul>
-          </div>
-          <div
-            class="flex footerBoxChild max-md:flex-col md:flex-col md:justify-center justify-between w-full max-md:border-b border-fuchsia-200 md:w-[15%] ">
-            <section class="w-full flex justify-between items-center ">
-
-              <p class="text-sm font-medium  mb-6 capitalize text-white">blog</p>
-              <div class=" max-md:flex hidden  justify-center items-center text-white">
-                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="m4 9l8 8l8-8" />
-                </svg>
-
-              </div>
-            </section>
-            <ul
-              class="text-white  max-md:text-gray-200  max-md:w-fit max-md:pl-4  boxChild max-md:hidden font-medium flex flex-col text-sm gap-2.5">
-              <li><a href="#">Blog Post</a></li>
-              <li><a href="#">Contact</a></li>
-
-            </ul>
-          </div>
-          <div
-            class="footerBoxChild flex flex-col md:justify-center justify-between w-full max-md:border-b border-fuchsia-200 md:w-[20%] ">
-            <section class="w-full flex justify-between items-center ">
-
-              <p class="text-sm font-medium mt-2 mb-6 capitalize text-white">utility pages</p>
-              <div class=" max-md:flex hidden  justify-center items-center text-white">
-                <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="m4 9l8 8l8-8" />
-                </svg>
-
-              </div>
-            </section>
-            <ul
-              class="text-white max-md:text-gray-200  max-md:w-fit max-md:pl-4 boxChild max-md:hidden font-medium flex flex-col text-sm gap-2.5">
-              <li><a href="#">Start here</a></li>
-              <li><a href="#">Style guide</a></li>
-              <li><a href="#">Password protected</a></li>
-              <li><a href="#">404 not found</a></li>
-              <li><a href="#">licenses</a></li>
-              <li><a href="#">Changelog</a></li>
-            </ul>
-          </div>
-          <div class=" rounded-2xl h-full w-[40%] "></div>
-          <div class="capitalize text-sm max-md:block hidden text-gray-200">
-            <span>nigeria</span>
-          </div>
-        </div>
-        <div class="md:flex justify-center hidden items-center w-[32%]">
-          <form class="w-full h-[90%] rounded-2xl col-center gap-3.5 text-gray-200  bg-[#3a2d3b] px-[5%]">
-            <p class="font-custom">Get 10% OFF of your first purchase</p>
-            <div class="w-full h-12 rounded-4xl">
-              <input placeholder="Enter your Email" type="email"
-                class="h-full placeholder:text-stone-500 w-full  rounded-4xl bg-white focus:border-2 focus:border-fuchsia-600 input-focus">
             </div>
-            <button
-              class="button bg-fuchsia-500 w-full rounded-4xl h-12 text-gray-200 font-medium capitalize">subscribe</button>
-          </form>
+            <div id="next"
+              class="p-1.5 z-40 hidden group-hover:block max-md:group-hover:hidden absolute rounded-3xl right-3.5 top-[45%] transition-all duration-200 active:scale-90 border-gray-200/70 border-2 hover:bg-gray-200 bg-gray-200/50 backdrop-blur-md ">
+              <svg class="size-6 -rotate-90 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m6 10l6 6l6-6" />
+              </svg>
+
+            </div>
+            <div id="dots"
+              class="  absolute border flex justify-center cursor-pointer bg-gray-300/40 p-0.5 border-gray-300 rounded-4xl backdrop-blur-2xl items-center gap-2 md:bottom-3 bottom-[3%]  max-md:translate-x-[-50%]  left-[50%] ">
+            </div>
+            <div class="absolute slide  flex  inset-0">
+
+              <div class=" h-full  flex items-center   w-[40%]">
+                <section class=" flex flex-col gap-2 pl-13 w-full">
+                  <div>
+                    <p class="text-stone-600 font-medium capitalize">the next generation</p>
+                  </div>
+                  <div class="">
+                    <h1 class="capitalize font-semibold text-5xl"
+                      style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">power your
+                      everyday</h1>
+                  </div>
+                  <div class="text-[15px] my-2 text-stone-800"
+                    style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+
+                    <p>
+                      Experience ultimate performnce. Explore our curated selection of flagship smartphones, built for
+                      speed
+                      and engineered to last.
+                  </div>
+                  <div>
+                    <button
+                      class="px-5 cursor-pointer active:scale-90 transition-all duration-200 bg-fuchsia-700 shadow-inner shadow-fuchsia-800 my-3 text-white capitalize font-medium py-2.5 rounded-4xl">view
+                      offers</button>
+                  </div>
+                </section>
+              </div>
+              <div class="h-full w-[60%] ">
+                <img class="w-full h-full  object-contain" src="0d952da6-1548-43ab-adf9-61054dd6147b (1).webp" alt="">
+              </div>
+            </div>
+
+            <!--  -->
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+            <div class=" slide inset-0 absolute opacity-0 transition-all duration-500 ease-in-out"></div>
+          </div>
+
+        </section>
+
+        <section class=" mx-[3%] rounded-2xl  gap-2 flex flex-col bg-fuchsia-200 pt-2 ">
+          <h1 class="text-black/80 ml-3 font-bold text-2xl text-nowrap text-ellipsis">All Your Essentials</h1>
+
+          <div
+            class="md:flex grid grid-cols-3  justify-between max-md:flex-wrap rounded-2xl p-4 bg-fuchsia-200   w-full items-center gap-3 md:gap-4">
+            <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
+            <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
+            <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
+            <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
+            <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
+            <div class=" md:size-40 w-full aspect-square bg-fuchsia-500 rounded-full "></div>
+          </div>
+
+        </section>
+        <section class=" w-full  px-[3%]">
+          <div class=" w-full flex  h-100  pb-4 bg-fuchsia-300 flex-col justify-center items-center  rounded-2xl">
+
+            <div class=" flex justify-between  md:items-center items-start max-md:pt-2  px-4 h-[20%] md:h-[30%] w-full">
+              <div>
+                <h1 class="capitalize text-3xl text-white font-semibold">new arrivals</h1>
+
+              </div>
+              <div
+                class="w-fit   px-6 md:px-4 py-2 h-fit rounded-4xl bg-fuchsia-600 shadow-inner shadow-fuchsia-700 capitalize text-white font-medium text-lg">
+                <a href="#" class="flex justify-center items-center gap-2">
+                  <span class="hidden md:inline">see more</span>
+                  <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="M5 12h14m-6 6l6-6m-6-6l6 6" />
+                  </svg>
+
+                </a>
+              </div>
+            </div>
+            <div
+              class=" h-[80%] md:h-[70%] w-full  flex flex-nowrap  px-3 overflow-x-scroll  scrollbar-none snap-x scroll-smooth snap-mandatory  gap-3">
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+              <div class="w-50 shrink-0 h-full snap-proximity rounded-2xl bg-white"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- about -->
+
+        <section class="flex flex-col gap-3.5 h-150 px-[3%]">
+          <div class="w-full  rounded-2xl bg-white h-1/2"></div>
+          <div class="w-full border rounded-2xl h-1/2"></div>
+        </section>
+      </main>
+      <footer class="w-full max-md:min-h-80 max-md:h-fit h-80 px-[5%] bg-[#2e1e30] mt-3">
+        <div class="w-full h-full flex gap-2 flex-col py-3">
+          <div class="flex h-[80%] w-full gap-4">
+            <div class=" flex max-md:flex-col gap-4 w-full md:w-[68%]">
+              <div
+                class="footerBoxChild max-md:flex-col md:w-[15%] w-full max-md:border-b border-fuchsia-200 flex  md:flex-col md:justify-center justify-between">
+                <section class="w-full flex justify-between items-center ">
+                  <p class="text-sm font-medium mt-2 mb-6 capitalize text-white">explore</p>
+                  <div
+                    class="transition-all ease-in-out  duration-200 max-md:flex hidden  justify-center items-center text-white">
+                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M0 0h24v24H0z" fill="none" />
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="m4 9l8 8l8-8" />
+                    </svg>
+
+                  </div>
+                </section>
+                <ul
+                  class="boxChild max-md:text-gray-200  max-md:w-fit max-md:pl-4 text-white max-md:hidden font-medium flex flex-col text-sm gap-2.5">
+                  <li><a href="#">Sales home</a></li>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Shop</a></li>
+                  <li><a href="#">Category</a></li>
+                </ul>
+              </div>
+              <div
+                class="flex footerBoxChild max-md:flex-col md:flex-col md:justify-center justify-between w-full max-md:border-b border-fuchsia-200 md:w-[15%] ">
+                <section class="w-full flex justify-between items-center ">
+
+                  <p class="text-sm font-medium  mb-6 capitalize text-white">blog</p>
+                  <div class=" max-md:flex hidden  justify-center items-center text-white">
+                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M0 0h24v24H0z" fill="none" />
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="m4 9l8 8l8-8" />
+                    </svg>
+
+                  </div>
+                </section>
+                <ul
+                  class="text-white  max-md:text-gray-200  max-md:w-fit max-md:pl-4  boxChild max-md:hidden font-medium flex flex-col text-sm gap-2.5">
+                  <li><a href="#">Blog Post</a></li>
+                  <li><a href="#">Contact</a></li>
+
+                </ul>
+              </div>
+              <div
+                class="footerBoxChild flex flex-col md:justify-center justify-between w-full max-md:border-b border-fuchsia-200 md:w-[20%] ">
+                <section class="w-full flex justify-between items-center ">
+
+                  <p class="text-sm font-medium mt-2 mb-6 capitalize text-white">utility pages</p>
+                  <div class=" max-md:flex hidden  justify-center items-center text-white">
+                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M0 0h24v24H0z" fill="none" />
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="m4 9l8 8l8-8" />
+                    </svg>
+
+                  </div>
+                </section>
+                <ul
+                  class="text-white max-md:text-gray-200  max-md:w-fit max-md:pl-4 boxChild max-md:hidden font-medium flex flex-col text-sm gap-2.5">
+                  <li><a href="#">Start here</a></li>
+                  <li><a href="#">Style guide</a></li>
+                  <li><a href="#">Password protected</a></li>
+                  <li><a href="#">404 not found</a></li>
+                  <li><a href="#">licenses</a></li>
+                  <li><a href="#">Changelog</a></li>
+                </ul>
+              </div>
+              <div class=" rounded-2xl h-full w-[40%] "></div>
+              <div class="capitalize text-sm max-md:block hidden text-gray-200">
+                <span>nigeria</span>
+              </div>
+            </div>
+            <div class="md:flex justify-center hidden items-center w-[32%]">
+              <form class="w-full h-[90%] rounded-2xl col-center gap-3.5 text-gray-200  bg-[#3a2d3b] px-[5%]">
+                <p class="font-custom">Get 10% OFF of your first purchase</p>
+                <div class="w-full h-12 rounded-4xl">
+                  <input placeholder="Enter your Email" type="email"
+                    class="h-full placeholder:text-stone-500 w-full  rounded-4xl bg-white focus:border-2 focus:border-fuchsia-600 input-focus">
+                </div>
+                <button
+                  class="button bg-fuchsia-500 w-full rounded-4xl h-12 text-gray-200 font-medium capitalize">subscribe</button>
+              </form>
+            </div>
+          </div>
+          <div
+            class=" w-full h-[20%] text-sm md:gap-4 gap-2.5 text-gray-200 max-md:flex-col flex justify-center max-md:items-start items-center ">
+            <div class="max-md:hidden">
+              eccox-store
+            </div>
+            <div>
+              <span>Copyright © Eccox store. All rights reserved.</span>
+            </div>
+            <div><a href="#">Terms of Use</a></div>
+          </div>
         </div>
-      </div>
-      <div
-        class=" w-full h-[20%] text-sm md:gap-4 gap-2.5 text-gray-200 max-md:flex-col flex justify-center max-md:items-start items-center ">
-        <div class="max-md:hidden">
-          eccox-store
-        </div>
-        <div>
-          <span>Copyright © Eccox store. All rights reserved.</span>
-        </div>
-        <div><a href="#">Terms of Use</a></div>
-      </div>
-    </div>
 
-  </footer>
+      </footer>
 
 
-  <script>
-    const searchBar = document.getElementById('searchBar')
-    const clearSearchBar = document.getElementById('clearSearchBar')
-    searchBar.addEventListener('input', () => {
-      if (searchBar.value !== '') {
-        clearSearchBar.classList.remove('hidden')
-      } else {
-        clearSearchBar.classList.add('hidden')
-      }
-    })
+      <script>
+        const searchBar = document.getElementById('searchBar')
+        const clearSearchBar = document.getElementById('clearSearchBar')
+        searchBar.addEventListener('input', () => {
+          if (searchBar.value !== '') {
+            clearSearchBar.classList.remove('hidden')
+          } else {
+            clearSearchBar.classList.add('hidden')
+          }
+        })
 
-    clearSearchBar.addEventListener('click', () => {
-      searchBar.value = ''
-    })
-    const prev = document.getElementById('prev')
-    const next = document.getElementById('next')
-    const dotCont = document.getElementById('dots')
-    const slides = document.querySelectorAll('.slide')
-    let current = 0
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button')
-      dot.className = 'rounded-4xl hover:scale-110 transition-all duration-200 cursor-pointer h-2 w-2 bg-gray-500 '
-      dot.addEventListener('click', () => goTo(i))
-      dotCont.appendChild(dot)
-    })
+        clearSearchBar.addEventListener('click', () => {
+          searchBar.value = ''
+        })
+        const prev = document.getElementById('prev')
+        const next = document.getElementById('next')
+        const dotCont = document.getElementById('dots')
+        const slides = document.querySelectorAll('.slide')
+        let current = 0
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button')
+          dot.className = 'rounded-4xl hover:scale-110 transition-all duration-200 cursor-pointer h-2 w-2 bg-gray-500 '
+          dot.addEventListener('click', () => goTo(i))
+          dotCont.appendChild(dot)
+        })
 
 
-    const dots = dotCont.querySelectorAll('button')
-    function update() {
-      slides.forEach((slide, i) => {
-        slide.style.opacity = i === current ? '1' : '0'
-      })
+        const dots = dotCont.querySelectorAll('button')
+        function update() {
+          slides.forEach((slide, i) => {
+            slide.style.opacity = i === current ? '1' : '0'
+          })
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('w-6', i === current)
-        dot.classList.toggle('w-2', i !== current)
-      })
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('w-6', i === current)
+            dot.classList.toggle('w-2', i !== current)
+          })
 
-    }
-    function goTo(index) {
-      current = (index + slides.length) % slides.length
-      update()
-    }
-
-    next.addEventListener('click', () => {
-      goTo(current + 1)
-    })
-    prev.addEventListener('click', () => {
-      goTo(current - 1)
-      console.log('weuafdgwukayjdh')
-    })
-    update()
-
-    setInterval(() => {
-      goTo(current + 1)
-
-    }, 5000)
-
-    const heroSec = document.getElementById('heroSec')
-    const category = document.getElementById('category')
-    const categoryMenu = document.getElementById('categoryMenu')
-    category.addEventListener('mouseenter', () => {
-      categoryMenu.classList.remove('opacity-0', '-z-5')
-      heroSec.classList.add('-z-10')
-    })
-    categoryMenu.addEventListener('mouseleave', function () {
-      categoryMenu.classList.add('opacity-0', '-z-5')
-      heroSec.classList.remove('-z-10')
-    })
-    const smMore = document.getElementById('smMore')
-    document.getElementById('headerMore').addEventListener('click', () => {
-      if (smMore.classList.contains('hidden')) {
-        smMore.classList.replace('hidden', 'flex')
-      }
-    })
-    const footerBoxes = document.querySelectorAll('.footerBoxChild');
-    footerBoxes.forEach(box => {
-      box.addEventListener('click', (e) => {
-        const boxChild = box.querySelector('.boxChild');
-        const boxSvg = box.querySelector('div');
-        if (e.target.closest('.boxChild')) return;
-        const isAlreadyOpen = boxChild.classList.contains('max-md:flex');
-        footerBoxes.forEach(otherBox => {
-          const otherChild = otherBox.querySelector('.boxChild');
-          const otherSvg = otherBox.querySelector('div');
-          otherChild.classList.add('max-md:hidden');
-          otherChild.classList.remove('max-md:flex');
-          otherSvg.classList.remove('rotate-180');
-        });
-        if (!isAlreadyOpen) {
-          boxChild.classList.remove('max-md:hidden');
-          boxChild.classList.add('max-md:flex');
-          boxSvg.classList.add('rotate-180');
         }
-      });
-    });
-    const homeCartBtn = document.getElementById('homeCartBtn')
-    const cartMenu = document.getElementById('cartMenu')
-    const main = document.querySelector('main')
-    homeCartBtn.addEventListener('click', () => {
-      if (cartMenu.classList.contains('hidden')) {
-        cartMenu.classList.replace('hidden', 'flex')
-        main.classList.replace('flex', 'hidden')
-      }else{
-         main.classList.replace('hidden', 'flex')
-       cartMenu.classList.replace('flex', 'hidden')
-      }
-    })
-    // === profile ==
-    const homeProfileBtn = document.getElementById('homeProfileBtn')
-    homeProfileBtn.addEventListener('click', () => {
-      window.location.href = '/login-user'
-    })
-    // === order btn =======
-    const homeOrdersBtn = document.getElementById('homeOrdersBtn')
-    homeOrdersBtn.addEventListener('click', ()=>{
-      window.location.href = '#'
-    })
+        function goTo(index) {
+          current = (index + slides.length) % slides.length
+          update()
+        }
+
+        next.addEventListener('click', () => {
+          goTo(current + 1)
+        })
+        prev.addEventListener('click', () => {
+          goTo(current - 1)
+          console.log('weuafdgwukayjdh')
+        })
+        update()
+
+        setInterval(() => {
+          goTo(current + 1)
+
+        }, 5000)
+
+        const heroSec = document.getElementById('heroSec')
+        const category = document.getElementById('category')
+        const categoryMenu = document.getElementById('categoryMenu')
+        category.addEventListener('mouseenter', () => {
+          categoryMenu.classList.remove('opacity-0', '-z-5')
+          heroSec.classList.add('-z-10')
+        })
+        categoryMenu.addEventListener('mouseleave', function () {
+          categoryMenu.classList.add('opacity-0', '-z-5')
+          heroSec.classList.remove('-z-10')
+        })
+        const smMore = document.getElementById('smMore')
+        document.getElementById('headerMore').addEventListener('click', () => {
+          if (smMore.classList.contains('hidden')) {
+            smMore.classList.replace('hidden', 'flex')
+          }
+        })
+        const footerBoxes = document.querySelectorAll('.footerBoxChild');
+        footerBoxes.forEach(box => {
+          box.addEventListener('click', (e) => {
+            const boxChild = box.querySelector('.boxChild');
+            const boxSvg = box.querySelector('div');
+            if (e.target.closest('.boxChild')) return;
+            const isAlreadyOpen = boxChild.classList.contains('max-md:flex');
+            footerBoxes.forEach(otherBox => {
+              const otherChild = otherBox.querySelector('.boxChild');
+              const otherSvg = otherBox.querySelector('div');
+              otherChild.classList.add('max-md:hidden');
+              otherChild.classList.remove('max-md:flex');
+              otherSvg.classList.remove('rotate-180');
+            });
+            if (!isAlreadyOpen) {
+              boxChild.classList.remove('max-md:hidden');
+              boxChild.classList.add('max-md:flex');
+              boxSvg.classList.add('rotate-180');
+            }
+          });
+        });
+        const homeCartBtn = document.getElementById('homeCartBtn')
+        const cartMenu = document.getElementById('cartMenu')
+        const main = document.querySelector('main')
+        homeCartBtn.addEventListener('click', () => {
+          if (cartMenu.classList.contains('hidden')) {
+            cartMenu.classList.replace('hidden', 'flex')
+            main.classList.replace('flex', 'hidden')
+          } else {
+            main.classList.replace('hidden', 'flex')
+            cartMenu.classList.replace('flex', 'hidden')
+          }
+        })
+        // === profile ==
+        const homeProfileBtn = document.getElementById('homeProfileBtn')
+        const isLoggedIn = document.body.dataset.loggedIn === "true";
+
+
+        homeProfileBtn.addEventListener('click', (event) => {
+          window.location.href = '/login-user'
+          if (!isLoggedIn) {
+            event.preventDefault();
+            window.location.href = '/login-user';
+          } else {
+            window.location.href = '/user-profile';
+          }
+        });
+
+        // === order btn =======
+        const homeOrdersBtn = document.getElementById('homeOrdersBtn')
+        homeOrdersBtn.addEventListener('click', () => {
+          window.location.href = '#'
+        })
 
 
 
-    // ============== headerMoreHome ============
-  </script>
+        // ============== headerMoreHome ============
+      </script>
 </body>
 
 </html>

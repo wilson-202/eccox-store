@@ -114,7 +114,7 @@
                                 <use href="#SVG67go7b2R" />
                             </g>
                         </svg>
-                       
+
 
                     </button>
                 </div>
@@ -175,10 +175,12 @@
             </form>
             <div id="forLoginFoot"
                 class="border-t w-full border-stone-600 flex flex-col  gap-2.5 justify-center items-center pt-4 ">
-                <p class="text-fuchsia-600 font-mono capitalize font-semibold"><a href="/forgot-password">forgot password?</a></p>
+                <p class="text-fuchsia-600 font-mono capitalize font-semibold"><a href="/forgot-password">forgot
+                        password?</a></p>
                 <div class="flex gap-1.5">
                     <p class="capitalize text-stone-100 text-sm font-medium">don't have an account ?</p>
-                    <a href="/signup" class="text-fuchsia-600 font-semibold text-sm font-mono capitalize">sign up here</button>
+                    <a href="/signup" class="text-fuchsia-600 font-semibold text-sm font-mono capitalize">sign up
+                        here</button>
                 </div>
             </div>
         </section>
@@ -219,7 +221,7 @@
 
             }
         })
-                const messageBox =  document.getElementById('messageBox')
+        const messageBox = document.getElementById('messageBox')
 
         const messageText = document.getElementById('messageText')
         const messageTextCont = document.getElementById('messageTextCont')
@@ -250,10 +252,23 @@
                 closeToast()
                 const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
                 messageText.innerText = clearmessage
-            } else {
-                window.location = '/'
-
             }
+            if (response.status === 403) {
+                messageBox.classList.replace('tran', 'translate-x-0')
+                messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
+                closeToast()
+                const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
+                messageText.innerText = clearmessage
+                setTimeout(() => {
+                    window.location = `/verify-email?email=${loginEmail.value}`
+                }, 5000)
+            }
+            if (response.ok) {
+                window.location = '/'
+            }
+
+
+
         })
         closeToastError.addEventListener('click', () => {
             messageBox.classList.replace('translate-x-0', 'tran')

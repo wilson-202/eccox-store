@@ -9,7 +9,7 @@
 </head>
 
 <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="flex justify-center items-center p-[5%] bg-black h-screen">
-    <main class="w-full h-full flex justify-center bg-black shadow-md shadow-white/10 rounded-2xl items-center">
+    <main class="w-full h-full flex justify-center bg-white shadow-md shadow-white/10 rounded-2xl items-center">
         <section class="w-full h-full gap-4 flex justify-center items-center flex-col rounded-4xl ">
             <div class="flex justify-center items-center p-3  bg-green-300 w-fit rounded-[50%] border-white">
                 <div class="flex  justify-center bg-green-500 size-20 rounded-[50%] items-center">
@@ -23,30 +23,37 @@
             </div>
 
             <div class="flex  w-full flex-col gap-3 items-center px-[10%]">
-                <p>registartion successgfpoeriusfhi</p>
+                <p>registartion successful</p>
                 <h1 class="text-3xl font-bold capitalize  text-stone-200">please verify your email</h1>
-                <p class="font-normal text-stone-200 text-[15px]">You're almost there! We sent an email to
-                <h2 class="text-white font-semibold text-lg">youremail@example.com</h2>
+                <p class="font-normal text-stone-200 text-[15px]">we sent an email to the email address you provided for verification
                 </p>
 
                 <div class="text-white text-center w-[52%]">
-                    <p>Just click on the verify button in that email to complete yout signup. if you dont't see it, you
+                    <p>Just click on the verify button in that email to complete your signup. if you dont't see it, you
                         may need to <span class="font-semibold">check your spam</span> folder.</p>
 
                 </div>
-                <div class="flex flex-col justify-center items-center gap-2.5">
+                <form id="ResendEmailForm" class="flex flex-col justify-center items-center gap-2.5">
                     <p class="text-white">Still can't find the email? No problem.</p>
                     <button
                         class="px-6 py-3 mt-2 rounded-lg text-white capitalize active:scale-90 transition-all duration-200 font-medium bg-fuchsia-700">
                         Resend verification email</button>
-                </div>
+                </form>
             </div>
-
-            <!-- <div>
-                didn't see any email? <span>Resend confirmation mail</span>
-            </div> -->
         </section>
     </main>
+
+    <script>
+        const ResendEmailForm = document.getElementById('ResendEmailForm')
+        ResendEmailForm.addEventListener('submit', async (event)=>{
+            event.preventDefault()
+            try {
+                
+            } catch (error) {
+                
+            }
+        })
+    </script>
 
 </body>
 

@@ -7,16 +7,17 @@ const validateRequest = require("../middlewares/validateSchemas");
 const { verifyEmailFirst } = require("../controllers/auth/verifyEmail");
 const { ForLoginFirst } = require("../controllers/auth/login");
 const { signupFirst } = require("../controllers/auth/signup");
+const {  loginAgainPrevention} = require('../middlewares/session')
 const { resetPasswordFirst, otpVerificationFirst, ForCreateNewPassFirst, ForResendOtpFirst } = require("../controllers/auth/forgotPass");
 // app.post('', validateRequest(usersignup), (req,res)=>{
-authRouther.get("/login-user", (req, res) => {
+authRouther.get("/login-user", loginAgainPrevention, (req, res) => {
   res.render("login");
 });
 authRouther.get("/forgot-password", (req, res) => {
   res.render("forgotpass");
 });
 
-authRouther.get("/verify-otp", async (req, res) => {
+authRouther.get("/verify-otp",  loginAgainPrevention, async (req, res) => {
   const { email } = req.query;
   const result = await pool.query(`SELECT id FROM users WHERE email = $1`, [email]);
   if (result.rows.length === 0) {

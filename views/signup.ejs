@@ -358,7 +358,7 @@
                 })
 
                 if (response.ok) {
-                    window.location = '/verify-email'
+                    window.location = `/verify-email?email=${email.value}`
                 } else {
                     const errorCode = response.status;
                     const errorJson = await response.json()

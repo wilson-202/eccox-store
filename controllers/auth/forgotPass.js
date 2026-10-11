@@ -155,7 +155,13 @@ class ForResendOtp {
 
         return await sendOTP(email, code);
       }
-    } catch (error) {}
+    } catch (error) {
+      const errMsg = error.message || error.messages;
+      console.log(errMsg);
+      return res.status(500).json({
+        error: "something went wrong",
+      });
+    }
   }
 }
 
