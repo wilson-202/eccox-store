@@ -10,7 +10,7 @@
 
 <body class="h-screen w-full"
     style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-    <main class="h-full bg-stone-700 overflow-hidden w-full flex relative p-2">
+    <main class="h-full bg-stone-700 overflow-hidden w-full md:flex relative md:p-2">
         <!-- message -->
         <div id="messageBox"
             class="rounded-[21px] flex  customCubic border-2 border-red-800 p-0.5 right-[2%] top-[7%]  text-stone-100 font-semibold  tran content-center text-left duration-150 transition-all   absolute z-16   h-19 w-[26%]">
@@ -37,7 +37,7 @@
 
             </div>
         </div>
-        <section class="w-[50%] h-full relative rounded-l-4xl">
+        <section class="w-[50%] max-md:hidden h-full relative rounded-l-4xl">
             <img src="/wmremove-transformed (1).jpeg"
                 class="absolute h-full w-full rounded-l-4xl inset-0 object-cover object-right " alt="">
             <div class=" flex flex-col gap-3 absolute w-full z-10 h-[20%] bottom-0 px-[10%]">
@@ -64,13 +64,16 @@
                 class="bg-linear-to-b rounded-l-4xl from-black/80 to-transparent from-30% absolute w-full h-[20%] top-0-0 z-8">
             </div>
         </section>
-        <section class="w-[50%] h-full rounded-r-4xl gap-5 flex justify-center items-center flex-col border bg-black">
-            <div class="w-fit flex items-center justify-center p-1 rounded-2xl bg-stone-800">
+        <section
+            class="md:w-[50%] max-md:h-[85%] w-full h-full md:rounded-r-4xl gap-5 flex justify-center items-center  flex-col  bg-white md:bg-black">
+            <div class="w-fit max-md:hidden flex items-center justify-center p-1 rounded-2xl bg-stone-800">
 
             </div>
-            <h1 id="topText" class="capitalize text-3xl text-gray-100 font-medium">login to your account</h1>
-            <form id="loginForm" class="w-[60%] flex flex-col gap-4">
-                <div class="flex  gap-4">
+            <h1 id="topText"
+                class="capitalize  w-full px-[5%] text-3xl text-black text-start md:text-gray-100  font-bold md:font-medium">
+                Sign in to your account</h1>
+            <form id="loginForm" class="md:w-[60%] w-full flex flex-col gap-4">
+                <div class="flex  max-md:hidden gap-4">
 
                     <button
                         class="w-full bg-stone-600 text-white rounded-xl h-10 flex justify-center items-center gap-2.5">
@@ -118,13 +121,15 @@
 
                     </button>
                 </div>
-                <div class="flex border-t gap-4 flex-col justify-center items-center w-full  border-stone-700">
-                    <p class="capitalize text-stone-200 px-3  -translate-y-3.5 bg-black">or</p>
-                    <div class="w-full relative h-fit">
+                <div
+                    class="flex md:border-t md:gap-4 gap-3 flex-col justify-center items-center w-full  border-stone-700">
+                    <p class="capitalize text-stone-200 px-3  max-md:hidden -translate-y-3.5 bg-black">or</p>
+                    <label for="loginEmail" class="capitalize  text-lg text-black  w-full px-[5%]">email address</label>
+                    <div class="md:w-full w-[90%] relative  h-fit">
                         <input type="email" name=""
-                            class="w-full placeholder:font-medium text-white placeholder:capitalize pl-12 pr-3 placeholder:text-stone-400 rounded-2xl h-11 focus:outline-none focus:border-fuchsia-500  focus:border-2  bg-stone-800"
+                            class="w-full placeholder:font-medium text-white placeholder:capitalize pl-12 pr-3 placeholder:text-stone-400 md:rounded-2xl rounded-4xl md:h-11 h-11.5 max-md:border  max-md:focus:ring-2 ring-fuchsia-300  max-md:border-black focus:outline-none focus:border-fuchsia-500  focus:border-2 bg-white md:bg-stone-800"
                             id="loginEmail" placeholder="enter your email">
-                        <svg class="size-6 left-[3%] top-[25%] text-stone-400 absolute"
+                        <svg class="size-6 left-[3%] top-[25%] max-md:text-black text-stone-400 absolute"
                             xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                             <path d="M0 0h48v48H0z" fill="none" />
                             <path fill="currentColor"
@@ -132,12 +137,12 @@
                         </svg>
 
                     </div>
-
-                    <div class="w-full relative h-fit">
+                    <label for="loginPassword" class="capitalize text-black  text-lg w-full px-[5%]">password</label>
+                    <div class="md:w-full w-[90%] relative  h-fit">
                         <input type="password" id="loginPassword"
-                            class="w-full placeholder:font-medium text-white placeholder:capitalize pl-12 pr-3 placeholder:text-stone-400 rounded-2xl h-11 focus:outline-none focus:border-fuchsia-500  focus:border-2  bg-stone-800"
+                            class="w-full placeholder:font-medium text-white placeholder:capitalize pl-12 pr-3 placeholder:text-stone-400 md:rounded-2xl rounded-4xl md:h-11 h-11.5 max-md:border  max-md:focus:ring-2 ring-fuchsia-300  max-md:border-black focus:outline-none focus:border-fuchsia-500  focus:border-2 bg-white md:bg-stone-800"
                             placeholder="password">
-                        <svg class="size-5 left-[3%] top-[25%] text-stone-400 absolute"
+                        <svg class="size-5 left-[3%] top-[25%] text-black md:text-stone-400 absolute"
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                             <path d="M0 0h16v16H0z" fill="none" />
                             <path fill="currentColor" fill-rule="evenodd"
@@ -145,7 +150,7 @@
                         </svg>
 
                         <div id="passEyeToggleForLogin"
-                            class=" absolute z-10 w-fit h-fit text-stone-500 right-[3%] active:scale-80 transition-all duration-200 top-[23%]">
+                            class=" absolute z-10 w-fit h-fit text-stone-500 right-[3%] active:scale-80 transition-all duration-200 top-[50%] -translate-y-1/2">
 
 
                             <svg id="onHidePassLogin" class="size-6 block" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -168,23 +173,51 @@
 
 
                     </div>
+                    <div class="w-full px-[5%]">
+                        <p class="text-fuchsia-600 text-end  capitalize font-semibold"><a href="/forgot-password">forgot
+                                password?</a></p>
+                    </div>
 
                     <button
-                        class="w-full h-11 bg-fuchsia-600 shadow-inner shadow-fuchsia-900 rounded-xl text-white active:scale-90 transition-all duration-200 font-semibold uppercase">login</button>
+                        class="md:w-full w-[90%] md:h-11 h-12.5 bg-fuchsia-600 shadow-inner shadow-fuchsia-900 md:rounded-xl rounded-4xl text-white active:scale-90 transition-all duration-200 font-semibold uppercase">login</button>
                 </div>
             </form>
             <div id="forLoginFoot"
-                class="border-t w-full border-stone-600 flex flex-col  gap-2.5 justify-center items-center pt-4 ">
-                <p class="text-fuchsia-600 font-mono capitalize font-semibold"><a href="/forgot-password">forgot
+                class="md:border-t w-full border-stone-600  flex flex-col  gap-2.5 justify-center items-center pt-4 ">
+                <p class="text-fuchsia-600 max-md:hidden  capitalize font-semibold"><a href="/forgot-password">forgot
                         password?</a></p>
                 <div class="flex gap-1.5">
-                    <p class="capitalize text-stone-100 text-sm font-medium">don't have an account ?</p>
-                    <a href="/signup" class="text-fuchsia-600 font-semibold text-sm font-mono capitalize">sign up
-                        here</button>
+                    <p class="capitalize text-stone-100 text-lg max-md:text-black font-medium">don't have an account ?
+                    </p>
+                    <a href="/signup" class="text-fuchsia-600 font-medium text-lg  capitalize">sign up</button>
                 </div>
             </div>
+<!-- ============================== =========== -->
+
+   
+
         </section>
-    </main>
+
+        
+            <section class="border-t border-gray-400 flex flex-col items-center justify-center bg-white w-full h-[15%]  ">
+            <p class="text-black font-medium h-fit px-2 -translate-y-full bg-white">OR</p>
+            <div class="border items-center gap-5 border-black h-11.5 rounded-4xl w-[90%] flex justify-center ">
+                <svg class="size-7" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                    <path d="M0 0h48v48H0z" fill="none" />
+                    <path fill="#FFC107"
+                        d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917" />
+                    <path fill="#FF3D00"
+                        d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691" />
+                    <path fill="#4CAF50"
+                        d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.9 11.9 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44" />
+                    <path fill="#1976D2"
+                        d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917" />
+                </svg>
+                <p class="text-black text-lg font-medium">sign in with google</p>
+            </div>
+
+        </section>
+         </main>
 
     <script>
 
