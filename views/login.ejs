@@ -13,7 +13,7 @@
     <main class="h-full bg-stone-700 overflow-hidden w-full md:flex relative md:p-2">
         <!-- message -->
         <div id="messageBox"
-            class="rounded-[21px] flex  customCubic border-2 border-red-800 p-0.5 right-[2%] top-[7%]  text-stone-100 font-semibold  tran content-center text-left duration-150 transition-all   absolute z-16   h-19 w-[26%]">
+            class="rounded-[21px] flex  customCubic border-2 border-red-800 p-0.5 right-[2%] top-[7%]  text-stone-100 font-semibold  tran content-center text-left duration-150 transition-all   absolute z-16   h-19 w-[80%] md:w-[26%]">
             <div id="messageTextCont"
                 class="w-full flex justify-between gap-2 px-2.5 items-center bg-red-500 shadow-red-600 h-full rounded-2xl ">
                 <div class="bg-stone-200 p-2 rounded-4xl flex justify-center items-center">
@@ -69,6 +69,20 @@
             <div class="w-fit max-md:hidden flex items-center justify-center p-1 rounded-2xl bg-stone-800">
 
             </div>
+            <div class="flex justify-start px-[5%] h-fit w-full items-center">
+                <div
+                    class="flex-center bg-linear-to-tl from-indigo-500 to-gray-300 via-fuchsia-700  w-fit h-fit  rounded-xl ">
+                    <svg class="text-white size-10" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2.5" d="M14 8h-4v8h4m-4-4h2.5" />
+                    </svg>
+
+
+                </div>
+            </div>
+
             <h1 id="topText"
                 class="capitalize  w-full px-[5%] text-3xl text-black text-start md:text-gray-100  font-bold md:font-medium">
                 Sign in to your account</h1>
@@ -178,18 +192,32 @@
                                 password?</a></p>
                     </div>
 
-                    <button
-                        class="md:w-full w-[90%] md:h-11 h-12.5 bg-fuchsia-600 shadow-inner shadow-fuchsia-900 md:rounded-xl rounded-4xl text-white active:scale-90 transition-all duration-200 font-semibold uppercase">login</button>
+                    <button type="submit"
+                        class="md:w-full w-[90%] flex-center gap-4 md:h-11 h-12.5 bg-fuchsia-600 shadow-inner shadow-fuchsia-900 md:rounded-xl rounded-4xl text-white active:scale-90 transition-all duration-200 font-semibold ">
+
+                        <p>Sign In</p>
+                        <svg class="text-white size-6.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path
+                                    d="M9 6c.047-1.093.185-1.79.597-2.326q.242-.313.555-.554c.81-.62 1.985-.62 4.335-.62h.501c2.834 0 4.251 0 5.132.879c.88.878.88 2.293.88 5.121v7c0 2.828 0 4.243-.88 5.121s-2.298.879-5.132.879h-.5c-2.351 0-3.526 0-4.336-.62a3 3 0 0 1-.554-.554C9.185 19.79 9.047 19.093 9 18" />
+                                <path d="M15 12H3m9.5 3.5S16 12.922 16 12s-3.5-3.5-3.5-3.5" />
+                            </g>
+                        </svg>
+
+                    </button>
                 </div>
             </form>
             <div id="forLoginFoot"
-                class="md:border-t w-full border-stone-600  flex flex-col  gap-2.5 justify-center items-center pt-4 ">
+                class="md:border-t w-full border-stone-600 flex flex-col  gap-2.5 justify-center items-center pt-4 ">
                 <p class="text-fuchsia-600 max-md:hidden  capitalize font-semibold"><a href="/forgot-password">forgot
                         password?</a></p>
                 <div class="flex gap-1.5">
                     <p class="capitalize text-stone-100 text-lg max-md:text-black font-medium">don't have an account ?
                     </p>
-                    <a href="/signup" class="text-fuchsia-600 font-medium text-lg  capitalize">sign up</button>
+                    <a href="/signup" class="text-fuchsia-600 font-medium text-lg  capitalize">sign up</a></button>
                 </div>
             </div>
             <!-- ============================== =========== -->
@@ -199,7 +227,8 @@
         </section>
 
 
-        <section class="border-t border-gray-400 flex flex-col items-center justify-center bg-white w-full h-[15%]  ">
+        <section id="signInWith"
+            class="border-t border-gray-400 active:scale-90 transition-all duration-200 flex flex-col items-center justify-center bg-white w-full h-[15%]  ">
             <p class="text-black font-medium h-fit px-2 -translate-y-full bg-white">OR</p>
             <div class="border items-center gap-5 border-black h-11.5 rounded-4xl w-[90%] flex justify-center ">
                 <svg class="size-7" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
@@ -312,6 +341,9 @@
                 messageBox.classList.replace('translate-x-0', 'tran')
             }, 6000)
         }
+
+        const signInWith = document.getElementById('signInWith')
+       
 
     </script>
 </body>
