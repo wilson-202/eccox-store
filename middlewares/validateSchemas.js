@@ -4,6 +4,7 @@ const validateRequest = (schema) => {
     if (error) {
       const errorMessages = error.details.map((details) => details.message);
       return res.status(400).json({
+        code: 'VALIDATION_ERROR',
         errors: errorMessages,
       });
     }

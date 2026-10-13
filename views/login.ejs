@@ -10,7 +10,7 @@
 
 <body class="h-dvh w-full"
     style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-    <main class="h-full bg-stone-700 overflow-hidden w-full md:flex relative md:p-2">
+    <main class="h-full bg-stone-700 max-md:bg-white overflow-hidden w-full md:flex relative md:p-2">
         <!-- message -->
         <div id="messageBox"
             class="rounded-[21px] flex max-md:hidden customCubic border-2 border-red-800 p-0.5 right-[2%] top-[7%]  text-stone-100 font-semibold  tran content-center text-left duration-150 transition-all   absolute z-16   h-19 w-[80%] md:w-[26%]">
@@ -201,7 +201,7 @@
                                 password?</a></p>
                     </div>
 
-                    <button type="submit"
+                    <button type="submit" id="loginBtn"
                         class="md:w-full w-[90%] flex-center gap-4 md:h-11 h-12.5 bg-fuchsia-600 shadow-inner shadow-fuchsia-900 md:rounded-xl rounded-4xl text-white active:scale-90 transition-all duration-200 font-semibold ">
 
                         <p>Sign In</p>
@@ -236,25 +236,25 @@
         </section>
 
 
-        <section id="signInWith"
-            class="border-t border-gray-400  flex flex-col items-center justify-center bg-white w-full h-[15%]  ">
-            <p class="text-black font-medium h-fit px-2 -translate-y-full bg-white">OR</p>
-            <div
-                class="border cursor-pointer items-center active:scale-90 transition-all duration-200 gap-5 border-black h-11.5 rounded-4xl w-[90%] flex justify-center ">
-                <svg class="size-7" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                    <path d="M0 0h48v48H0z" fill="none" />
-                    <path fill="#FFC107"
-                        d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917" />
-                    <path fill="#FF3D00"
-                        d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691" />
-                    <path fill="#4CAF50"
-                        d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.9 11.9 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44" />
-                    <path fill="#1976D2"
-                        d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917" />
-                </svg>
-                <p class="text-black text-lg  capitalize font-medium">sign in with google</p>
+        <section id="signInWith" class=" flex flex-col items-center px-[4%] justify-center bg-white w-full h-[15%]  ">
+            <div class="w-full h-full flex border-t border-gray-400  flex-col items-center justify-center">
+                <p class="text-black font-medium h-fit px-2 -translate-y-full bg-white">OR</p>
+                <div
+                    class="border cursor-pointer items-center active:scale-90 transition-all duration-200 gap-5 border-black h-11.5 rounded-4xl w-full flex justify-center ">
+                    <svg class="size-7" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                        <path d="M0 0h48v48H0z" fill="none" />
+                        <path fill="#FFC107"
+                            d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917" />
+                        <path fill="#FF3D00"
+                            d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691" />
+                        <path fill="#4CAF50"
+                            d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.9 11.9 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44" />
+                        <path fill="#1976D2"
+                            d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917" />
+                    </svg>
+                    <p class="text-black text-lg  capitalize font-medium">sign in with google</p>
+                </div>
             </div>
-
         </section>
     </main>
 
@@ -278,6 +278,7 @@
         loginEmail.addEventListener('input', function () {
             if (loginEmail.classList.contains('max-md:border-red-500')) {
                 loginEmail.classList.replace('max-md:border-red-500', 'max-md:border-black')
+                loginEmail.classList.replace('placeholder:text-red-500', 'placeholder:text-stone-400')
             }
             if (loginEmailSmError.classList.contains('block')) {
                 loginEmailSmError.classList.replace('block', 'hidden')
@@ -293,6 +294,8 @@
         loginPassword.addEventListener('input', function () {
             if (loginPassword.classList.contains('max-md:border-red-500')) {
                 loginPassword.classList.replace('max-md:border-red-500', 'max-md:border-black')
+                loginPassword.classList.replace('placeholder:text-red-500', 'placeholder:text-stone-400')
+
             }
             if (loginPassSmError.classList.contains('block')) {
                 loginPassSmError.classList.replace('block', 'hidden')
@@ -301,8 +304,10 @@
                 loginPassSvg.classList.replace('max-md:text-red-500', 'max-md:text-black')
 
             }
-            this.value = this.value
-                .replace(/[^a-zA-Z0-9@#$]/g, '')
+            loginPassCont.classList.replace('justify-between', 'justify-end')
+
+            // this.value = this.value
+            //     .replace(/[^a-zA-Z0-9@#$]/g, '')
         })
 
         // ===== loginbox eye toggle =====
@@ -323,107 +328,136 @@
         const messageText = document.getElementById('messageText')
         const messageTextCont = document.getElementById('messageTextCont')
         const closeToastError = document.getElementById('closeToastError')
-
+        const loginBtn = document.getElementById('loginBtn')
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault()
+            loginBtn.textContent = '....'
             const payLoad = {
                 email: loginEmail.value,
                 password: loginPassword.value
             }
 
-            const response = await fetch('/login-post', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payLoad)
-            })
-            const errorJson = await response.json()
-            console.log(errorJson)
+            try {
+                const response = await fetch('/login-post', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payLoad)
+                })
+                const errorJson = await response.json()
+                console.log(errorJson)
 
-            if (response.status === 400) {
+                if (response.status === 400) {
 
-                const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
+                    const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
+                    console.log(errorJson.errors.email)
+                    messageBox.classList.replace('tran', 'translate-x-0')
+                    messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
+                    closeToast()
+                    messageText.innerText = clearmessage
+                     
+                
 
-                messageBox.classList.replace('tran', 'translate-x-0')
-                messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
-                closeToast()
-                messageText.innerText = clearmessage
-
-                if (loginEmail.classList.contains('max-md:border-black')) {
-                    loginEmail.classList.remove('max-md:border-black')
-                    loginEmail.classList.add('max-md:border-red-500')
-                }
-                loginEmailSmError.classList.replace('hidden', 'block')
-                // loginEmailSmError.textContent = clearmessage
-                loginEmailSvg.classList.replace('max-md:text-black', 'max-md:text-red-500')
-
-
-
-                if (loginPassword.classList.contains('max-md:border-black')) {
-                    loginPassword.classList.remove('max-md:border-black')
-                    loginPassword.classList.add('max-md:border-red-500')
-                }
-                loginPassSmError.classList.replace('hidden', 'block')
-                // loginPassSmError.textContent = clearmessage
-                loginPassSvg.classList.replace('max-md:text-black', 'max-md:text-red-500')
-
-
-
-
-            }
-
-            if (response.status === 401) {
-                const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
-
-                if (errorJson.error === 'Invalid Email') {
                     if (loginEmail.classList.contains('max-md:border-black')) {
-                        loginEmail.classList.remove('max-md:border-black')
-                        loginEmail.classList.add('max-md:border-red-500')
+                        loginEmail.classList.remove('max-md:border-black', 'placeholder:text-stone-400')
+                        loginEmail.classList.add('max-md:border-red-500', 'placeholder:text-red-500')
                     }
                     loginEmailSmError.classList.replace('hidden', 'block')
-                    loginEmailSmError.textContent = clearmessage
+                    // loginEmailSmError.textContent = clearmessage
                     loginEmailSvg.classList.replace('max-md:text-black', 'max-md:text-red-500')
 
-                }
 
 
-
-                // ======= for incorrect password =========
-
-                if (errorJson.error === 'Incorrect Password') {
                     if (loginPassword.classList.contains('max-md:border-black')) {
-                        loginPassword.classList.remove('max-md:border-black')
-                        loginPassword.classList.add('max-md:border-red-500')
+                        loginPassword.classList.remove('max-md:border-black', 'placeholder:text-stone-400')
+                        loginPassword.classList.add('max-md:border-red-500', 'placeholder:text-red-500')
                     }
                     loginPassSmError.classList.replace('hidden', 'block')
-                    loginPassSmError.textContent = clearmessage
+                    // loginPassSmError.textContent = clearmessage
                     loginPassSvg.classList.replace('max-md:text-black', 'max-md:text-red-500')
-                    loginPassCont.classList.replace('justify-end', 'justify-between')
+
+
+
 
                 }
-                // const errorCode = response.status;
 
-                messageBox.classList.replace('tran', 'translate-x-0')
-                messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
-                closeToast()
-                messageText.innerText = clearmessage
-            }
-            if (response.status === 403) {
-                messageBox.classList.replace('tran', 'translate-x-0')
-                messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
-                closeToast()
-                const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
-                messageText.innerText = clearmessage
-                setTimeout(() => {
-                    window.location = `/verify-email?email=${loginEmail.value}`
-                }, 5000)
-            }
-            if (response.ok) {
-                window.location = '/'
-            }
+                if (response.status === 401) {
+                    const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
+
+                    if (errorJson.error === 'Invalid Email') {
+                        if (loginEmail.classList.contains('max-md:border-black')) {
+                            loginEmail.classList.remove('max-md:border-black')
+                            loginEmail.classList.add('max-md:border-red-500')
+                        }
+                        loginEmailSmError.classList.replace('hidden', 'block')
+                        loginEmailSmError.textContent = clearmessage
+                        loginEmailSvg.classList.replace('max-md:text-black', 'max-md:text-red-500')
 
 
+                         setTimeout(() => {
+                            loginEmail.classList.add('shake2')
+                            setTimeout(() => {
+                                loginEmail.classList.remove('shake2')
+                            }, 300)
+                        }, 400)
+                    }
+
+
+
+                    // ======= for incorrect password =========
+
+                    if (errorJson.error === 'Incorrect Password') {
+                        if (loginPassword.classList.contains('max-md:border-black')) {
+                            loginPassword.classList.remove('max-md:border-black')
+                            loginPassword.classList.add('max-md:border-red-500')
+                        }
+                        loginPassSmError.classList.replace('hidden', 'block')
+                        loginPassSmError.textContent = clearmessage
+                        loginPassSvg.classList.replace('max-md:text-black', 'max-md:text-red-500')
+                        loginPassCont.classList.replace('justify-end', 'justify-between')
+                        setTimeout(() => {
+                            loginPassword.classList.add('shake2')
+                            loginPassword.value = ''
+                            setTimeout(() => {
+                                loginPassword.classList.remove('shake2')
+                            }, 300)
+                        }, 400)
+                    }
+                    // const errorCode = response.status;
+
+                    messageBox.classList.replace('tran', 'translate-x-0')
+                    messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
+                    closeToast()
+                    messageText.innerText = clearmessage
+                }
+                if (response.status === 403) {
+                    messageBox.classList.replace('tran', 'translate-x-0')
+                    messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
+                    closeToast()
+                    const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
+                    messageText.innerText = clearmessage
+                    setTimeout(() => {
+                        window.location = `/verify-email?email=${loginEmail.value}`
+                    }, 5000)
+                }
+                if (response.ok) {
+                    window.location = '/'
+                }
+
+            } finally {
+                loginBtn.innerHTML = ` <p>Sign In</p>
+                        <svg class="text-white size-6.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path
+                                    d="M9 6c.047-1.093.185-1.79.597-2.326q.242-.313.555-.554c.81-.62 1.985-.62 4.335-.62h.501c2.834 0 4.251 0 5.132.879c.88.878.88 2.293.88 5.121v7c0 2.828 0 4.243-.88 5.121s-2.298.879-5.132.879h-.5c-2.351 0-3.526 0-4.336-.62a3 3 0 0 1-.554-.554C9.185 19.79 9.047 19.093 9 18" />
+                                <path d="M15 12H3m9.5 3.5S16 12.922 16 12s-3.5-3.5-3.5-3.5" />
+                            </g>
+                        </svg>`
+            }
 
         })
         closeToastError.addEventListener('click', () => {
