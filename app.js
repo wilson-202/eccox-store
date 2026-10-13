@@ -14,9 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const pool = require("./config/database");
 
-const indexRouther = require("./routers/index");
-app.use(indexRouther);
-
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -29,6 +26,9 @@ app.use(
     },
   }),
 );
+
+const indexRouther = require("./routers/index");
+app.use(indexRouther);
 
 const fs = require("fs");
 const { message } = require("./schemas/userSchemas");
@@ -61,7 +61,7 @@ const uploader = multer({
 });
 const { loginAgainPrevention } = require("./middlewares/session");
 app.get("/", loginAgainPrevention, (req, res) => {
-  return res.status(200).render("home");
+  return res.render("home", { user: req.session.user });
 });
 app.get("/my-panel", (req, res) => {
   return res.status(200).render("panel");

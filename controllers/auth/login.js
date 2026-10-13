@@ -6,7 +6,7 @@ class ForLogin {
   async login(req, res) {
     try {
       const { email, password } = req.body;
-      if ((!email, !password)) {
+      if (!email || !password) {
         return res.status(400).json({
           error: "Email amd Password are required..",
         });
@@ -27,16 +27,20 @@ class ForLogin {
       if (verificationCheck.rows.length > 0) {
         return res.status(403).json({ error: "Account not verified check your Email to login" });
       } else {
+        console.log(userData.id);
         const user = {
-          userId: verificationCheck.userId
-        }
+          userId: userData.id,
+        };
         req.session.user = user;
-        res.status(200);
+        console.log(user);
+        return res.status(200).json({
+          message: "login successful",
+        });
       }
     } catch (error) {
-      const errMsg = error.message || error.messages;
+      console.error("Login Error:", error);
       return res.status(500).json({
-        error: "something went wrong",
+        error: "Something went wrong",
       });
     }
   }
