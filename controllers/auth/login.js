@@ -14,7 +14,7 @@ class ForLogin {
 
       const result = await pool.query(`SELECT * FROM users WHERE email = $1`, [email]);
       if (result.rows.length === 0) {
-        return res.status(401).json({ error: "Account not Found" });
+        return res.status(401).json({ error: "Invalid Email" });
       }
       const userData = result.rows[0];
       const passwordCheck = await bcrypt.compare(password, userData.password);
