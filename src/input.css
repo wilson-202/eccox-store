@@ -92,42 +92,55 @@ input::-ms-clear {
   display: none;
 }
 
-@keyframes signupAnim{
-  from{
+@keyframes signupAnim {
+  from {
     transform: translateY(100%);
-  }to{
+  }
+  to {
     transform: translateY(0);
   }
 }
 
 .signupAnim {
-  animation: signupAnim 0.6s cubic-bezier(0.23, 1.4, 0.520, 1);
+  animation: signupAnim 0.6s cubic-bezier(0.23, 1.4, 0.52, 1);
 }
-@utility input-focus{
-  @apply focus:outline-none px-3 placeholder:capitalize 
-
+@utility input-focus {
+  @apply focus:outline-none px-3 placeholder:capitalize;
 }
-@utility button{
-  @apply active:scale-90 transition-all duration-300 px-4 py-1.5
+@utility button {
+  @apply active:scale-90 transition-all duration-300 px-4 py-1.5;
 }
-@utility flex-center{
-    @apply flex justify-center items-center
+@utility flex-center {
+  @apply flex justify-center items-center;
 }
-@utility col-center{
-    @apply flex flex-col justify-center items-center
+@utility col-center {
+  @apply flex flex-col justify-center items-center;
 }
-@utility absolute-center{
-  @apply absolute translate-x-[-50%]  left-[50%] 
+@utility absolute-center {
+  @apply absolute translate-x-[-50%]  left-[50%];
 }
-@utility click-transis{
-  @apply active:scale-90 duration-200 transition-all ease-in-out
+@utility click-transis {
+  @apply active:scale-90 duration-200 transition-all ease-in-out;
+}
+.loginleftBG {
+  background-image: url("handmade-paper.png"), linear-gradient(to bottom, #b234c6, #ba73dd, #c7a3ed, #dbcff6, #f9f9f9);
+  background-blend-mode: multiply;
+  background-repeat: repeat;
 }
 @font-face {
-  font-family: 'CustomFont';
-  src: url('../src/font/DMSans-Italic-VariableFont_opsz\,wght.ttf') format('truetype');
+  font-family: "CustomFont";
+  src: url("../src/font/DMSans-Italic-VariableFont_opsz\,wght.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Plus Jarkata Sans";
+  src: url("font/PlusJakartaSans-VariableFont_wght.ttf");
+  /* font-weight: 800; */
+  font-style: normal;
+}
 @theme {
-  --font-custom: 'CustomFont', sans-serif;
+  --font-custom: "CustomFont", sans-serif;
+  --font-custom2: "Plus Jarkata Sans", sans-serif;
 }
