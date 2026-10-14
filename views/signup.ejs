@@ -12,14 +12,13 @@
     </style>
 </head>
 
-<body class="h-screen w-full"
-    style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-    <main class="h-full bg-stone-700  overflow-hidden w-full flex relative md:p-2">
+<body class="h-screen w-full">
+    <main class="h-full font-custom2 bg-white   overflow-hidden w-full flex relative ">
         <div id="messageBox"
             class="rounded-[21px] flex  customCubic border-2 border-red-800 p-0.5 right-[2%] top-[2%] md:top-[7%]  text-stone-100 font-semibold  tran content-center text-left duration-150 transition-all   absolute z-24   h-19 w-[80%] md:w-[26%]">
             <div id="messageTextCont"
                 class="w-full flex justify-between gap-2 px-2.5 items-center bg-red-500 shadow-red-600 h-full rounded-2xl ">
-                <div class="bg-stone-200 p-2 rounded-4xl flex justify-center items-center">
+                <div class="bg-stone-200 p-2 rounded-4xl flex-center">
 
                     <svg class="size-7  -translate-y-0.5 text-red-800" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24">
@@ -41,56 +40,84 @@
             </div>
         </div>
 
-        <section class="md:w-[50%] w-full hidden md:block h-full md:h-full relative md:rounded-l-4xl">
-            <img src="/wmremove-transformed (1).jpeg"
-                class="absolute h-full w-full md:rounded-l-4xl inset-0 object-cover object-right " alt="">
-            <div class=" flex flex-col gap-3 absolute w-full z-10 h-[20%] bottom-0 px-[10%]">
-                <h1 class="text-4xl text-white font-bold capitalize">upgrade your reality</h1>
-                <p class="text-white">Discover next-gen premium products engineered for tomorrow</p>
+        <section class="w-[50%] loginleftBG max-md:hidden h-full relative ">
+            <div class=" flex justify-center flex-col gap-3 absolute w-full z-10 h-[20%] bottom-0 px-[5%]">
+                <h1 class="text-5xl font-extrabold text-black  capitalize">upgrade your reality...</h1>
 
             </div>
             <div class="flex z-12 absolute top-[5%] left-[5%] items-center gap-3.5">
-                <svg class="text-stone-100  size-10" xmlns="http://www.w3.org/2000/svg" width="8" height="8"
-                    viewBox="0 0 8 8">
-                    <path d="M0 0h8v8H0z" fill="none" />
-                    <path fill="currentColor"
-                        d="M8 5Q5 6 4 8Q3 6 0 5l1-2l-1-3l3 2h2l3-2l-1 3M2 3l1 1V3m2 0v1l1-1M1 5q2 1 3 2q1-1 3-2M4 6l1-1l-1-1l-1 1" />
-                </svg>
-                <p class="font-bold capitalize text-white text-lg">eccox store</p>
-            </div>
+                <div class="flex z-12 absolute top-[5%] left-[5%] items-center gap-3.5">
+                    <div class="flex justify-start max-md:hidden  px-[5%] h-fit w-fit items-center">
+                        <div class="flex-center bg-white shadow-inner shadow-gray-300  w-fit h-fit  rounded-xl ">
+                            <svg class="text-black  size-10" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2.5" d="M14 8h-4v8h4m-4-4h2.5" />
+                            </svg>
 
-            <div class="absolute right-0 h-full w-[10%] bg-linear-to-l z-13 via-black/60 from-black to-transparent">
-            </div>
-            <div
-                class="bg-linear-to-t md:rounded-l-4xl from-black/90 to-transparent from-30% absolute w-full h-[30%] bottom-0 z-8">
-            </div>
-            <div
-                class="bg-linear-to-b md:rounded-l-4xl from-black/80 to-transparent from-30% absolute w-full h-[20%] top-0-0 z-8">
-            </div>
+
+                        </div>
+                    </div>
+                    <p class="font-bold capitalize text-nowrap text-white text-lg">eccox store</p>
+                </div>
         </section>
         <section id="smSignup"
-            class="md:w-[50%] w-full max-md:z-20 relative max-md:h-dvh   h-full  md:rounded-r-4xl md:gap-5 gap-3 flex justify-center items-center flex-col border bg-neutral-100 md:bg-black">
-            <!-- <div class="w-fit flex items-center justify-center p-1 rounded-2xl bg-stone-800">
-                <button id="signupToggleBtn"
-                    class="capitalize px-4 py-2 rounded-xl hover:scale-105 transition-all duration-200 bg-fuchsia-600 shadow-inner shadow-fuchsia-900 text-white font-semibold">sign
-                    up</button>
-            </div> -->
-            <h1 id="topText" class="capitalize font-sans text-2xl text-black md:text-gray-100 font-medium"> Create your
-                Eccox Account</h1>
-            <form id="signUpForm" class="md:w-[60%] max-md:px-3 w-full flex flex-col gap-4">
-                <div class="flex-center max-md:col-center gap-4 md:gap-7">
-                    <input placeholder="first name" id="firstName" maxlength="20" min="1"
-                        class="md:w-[50%] w-full placeholder:font-medium customSha text-black md:text-white placeholder:capitalize px-3 placeholder:text-stone-400 rounded-lg md:rounded-2xl md:h-11  h-13 border-stone-500 border-2 focus:outline-none focus:border-fuchsia-500  focus:border-2  bg-neutral-100 md:bg-stone-800"
-                        type="text">
-                    <input placeholder="last name" id="lastName" maxlength="20" minlength="1"
-                        class="md:w-[50%] w-full placeholder:font-medium customSha text-black md:text-white placeholder:capitalize px-3 placeholder:text-stone-400 rounded-lg md:rounded-2xl md:h-11 h-13 border-stone-500 border-2 focus:outline-none focus:border-fuchsia-500  focus:border-2  bg-neutral-100 md:bg-stone-800"
-                        type="text">
+            class="md:w-[50%] w-full max-md:z-20 md:px-[6%] relative h-dvh   md:gap-5 gap-4 flex-center flex-col  bg-white">
+            <div class="flex justify-start md:hidden px-[5%] h-fit w-full items-center">
+                <div
+                    class="flex-center bg-linear-to-tl from-indigo-500 to-gray-300 via-fuchsia-700  w-fit h-fit  rounded-xl ">
+                    <svg class="text-white size-10" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2.5" d="M14 8h-4v8h4m-4-4h2.5" />
+                    </svg>
+                </div>
+            </div>
+            <div class="text-black max-md:px-[5%]  w-full  flex flex-col gap-1.5 ">
+                <h1 id="topText" class="capitalize  text-3xl text-black  font-bold"> Create
+                    your
+                    Eccox Account</h1>
+                <p class="text-stone-600 font-medium max-md:hidden">Discover next-gen premium products engineered for
+                    tomorrow.</p>
+
+            </div>
+
+            <form id="signUpForm" class="md:w-full max-md:px-3 w-full flex flex-col gap-4">
+                <div class="flex-center  max-md:col-center gap-4 md:gap-7">
+                    <div class="md:w-[50%] relative w-full h-fit">
+                        <input placeholder="first name" id="firstName" maxlength="20" min="1"
+                            class=" w-full placeholder:font-medium customSha pl-12 text-black  placeholder:capitalize px-3 placeholder:text-stone-400  rounded-4xl md:h-11  h-13 border-black border focus:outline-none focus:border-fuchsia-500  focus:border-2   bg-white"
+                            type="text">
+                        <svg class="absolute top-[50%] text-black left-3 -translate-y-1/2"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7.75 7.5a4.25 4.25 0 1 1 8.5 0a4.25 4.25 0 0 1-8.5 0M12 4.75a2.75 2.75 0 1 0 0 5.5a2.75 2.75 0 0 0 0-5.5m-4 10A2.25 2.25 0 0 0 5.75 17v1.188c0 .018.013.034.031.037c4.119.672 8.32.672 12.438 0a.04.04 0 0 0 .031-.037V17A2.25 2.25 0 0 0 16 14.75h-.34a.3.3 0 0 0-.079.012l-.865.283a8.75 8.75 0 0 1-5.432 0l-.866-.283a.3.3 0 0 0-.077-.012zM4.25 17A3.75 3.75 0 0 1 8 13.25h.34q.28.001.544.086l.866.283a7.25 7.25 0 0 0 4.5 0l.866-.283c.175-.057.359-.086.543-.086H16A3.75 3.75 0 0 1 19.75 17v1.188c0 .754-.546 1.396-1.29 1.517a40.1 40.1 0 0 1-12.92 0a1.54 1.54 0 0 1-1.29-1.517z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                    </div>
+                    <div class="md:w-[50%] relative w-full h-fit">
+                        <input placeholder="last name" id="lastName" maxlength="20" minlength="1"
+                            class=" w-full placeholder:font-medium customSha pl-12 text-black  placeholder:capitalize px-3 placeholder:text-stone-400  rounded-4xl md:h-11  h-13 border-black border focus:outline-none focus:border-fuchsia-500  focus:border-2   bg-white"
+                            type="text">
+                        <svg class="absolute top-[50%] text-black left-3 -translate-y-1/2"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M7.75 7.5a4.25 4.25 0 1 1 8.5 0a4.25 4.25 0 0 1-8.5 0M12 4.75a2.75 2.75 0 1 0 0 5.5a2.75 2.75 0 0 0 0-5.5m-4 10A2.25 2.25 0 0 0 5.75 17v1.188c0 .018.013.034.031.037c4.119.672 8.32.672 12.438 0a.04.04 0 0 0 .031-.037V17A2.25 2.25 0 0 0 16 14.75h-.34a.3.3 0 0 0-.079.012l-.865.283a8.75 8.75 0 0 1-5.432 0l-.866-.283a.3.3 0 0 0-.077-.012zM4.25 17A3.75 3.75 0 0 1 8 13.25h.34q.28.001.544.086l.866.283a7.25 7.25 0 0 0 4.5 0l.866-.283c.175-.057.359-.086.543-.086H16A3.75 3.75 0 0 1 19.75 17v1.188c0 .754-.546 1.396-1.29 1.517a40.1 40.1 0 0 1-12.92 0a1.54 1.54 0 0 1-1.29-1.517z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
                 </div>
                 <div class="w-full relative h-fit">
                     <input type="email" name=""
-                        class="w-full placeholder:font-medium text-black md:text-white placeholder:capitalize pl-12 pr-3 placeholder:text-stone-400 rounded-lg md:rounded-2xl md:h-11 h-13 focus:outline-none focus:border-fuchsia-500  focus:border-2 bg-neutral-100 border-2 border-stone-500 md:bg-stone-800"
+                        class="w-full placeholder:font-medium text-black  placeholder:capitalize pl-12 pr-3 placeholder:text-stone-400 rounded-4xl md:h-11 h-13 focus:outline-none focus:border-fuchsia-500  focus:border-2  border border-black bg-white"
                         id="email" placeholder="enter your email">
-                    <svg class="md:size-6 size-7 left-[3%] top-[25%] text-stone-500 md:text-stone-400 absolute"
+                    <svg class="md:size-6 size-7 left-[3%] top-[25%] text-black  absolute"
                         xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                         <path d="M0 0h48v48H0z" fill="none" />
                         <path fill="currentColor"
@@ -100,9 +127,9 @@
                 </div>
                 <div class="w-full relative h-fit">
                     <input type="password" id="password"
-                        class="w-full placeholder:font-medium md:text-white text-black placeholder:capitalize pl-12 pr-3 placeholder:text-stone-500 rounded-lg md:rounded-2xl md:h-11 h-13 focus:outline-none focus:border-fuchsia-500  border-stone-500 border-2  md:bg-stone-800"
+                        class="w-full placeholder:font-medium  text-black placeholder:capitalize pl-12 pr-3 placeholder:text-stone-500 rounded-4xl md:h-11 h-13 focus:outline-none focus:border-fuchsia-500   focus:border-2  border-black border  "
                         placeholder="password">
-                    <svg class="md:size-5 size-6 left-[3%] top-[25%] text-stone-500 md:text-stone-400 absolute"
+                    <svg class="md:size-5 size-6 left-[3%] top-[25%] text-black  absolute"
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                         <path d="M0 0h16v16H0z" fill="none" />
                         <path fill="currentColor" fill-rule="evenodd"
@@ -135,9 +162,9 @@
                 </div>
                 <div class="w-full relative h-fit">
                     <input type="password" id="cPassword"
-                        class="w-full placeholder:font-medium md:text-white text-black placeholder:capitalize pl-12 pr-3 placeholder:text-stone-500 rounded-lg md:rounded-2xl md:h-11 h-13 focus:outline-none focus:border-fuchsia-500  border-stone-500 border-2  md:bg-stone-800"
+                        class="w-full placeholder:font-medium  text-black placeholder:capitalize pl-12 pr-3 placeholder:text-stone-500 rounded-4xl md:h-11 h-13 focus:outline-none focus:border-fuchsia-500   focus:border-2   border-black border  bg-white"
                         placeholder="confirm password">
-                    <svg class="md:size-5 size-6 left-[3%] top-[25%] text-stone-500 md:text-stone-400 absolute"
+                    <svg class="md:size-5 size-6 left-[3%] top-[25%] text-black absolute"
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                         <path d="M0 0h16v16H0z" fill="none" />
                         <g fill="currentColor">
@@ -172,19 +199,28 @@
 
                 </div>
                 <button type="submit" id="signupBtn"
-                    class="w-full mt-2 rounded-lg h-13 md:rounded-2xl disabled:bg-gray-600 bg-fuchsia-600 shadow-inner shadow-fuchsia-900  text-white font-semibold md:h-11 active:scale-90 transition-all duration-200 ">Create
-                    an Account</button>
-                <div class="text-sm  font-medium max-md:text-center text-black md:text-stone-100">Already have an
-                    account? <a href="/login-user" class="capitalize text-fuchsia-500 font-semibold">login</a></div>
+                    class="w-full mt-2 flex-center gap-2.5 rounded-4xl cursor-pointer h-13  disabled:bg-fuchsia-400 bg-fuchsia-600 shadow-inner shadow-fuchsia-900  text-white font-semibold md:h-11 active:scale-90 capitalize transition-all duration-200 ">
+                    <p>
+                        sign up
+                    </p>
+                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M14.5 6c-.047-1.093-.185-1.79-.598-2.326a3 3 0 0 0-.554-.554c-.81-.62-1.985-.62-4.335-.62h-.501c-2.834 0-4.251 0-5.132.879c-.88.878-.88 2.293-.88 5.121v7c0 2.828 0 4.243.88 5.121s2.298.879 5.132.879h.5c2.351 0 3.526 0 4.336-.62q.314-.241.554-.554c.413-.536.551-1.233.598-2.326m6-6h-12m9.5 3.5s3.5-2.578 3.5-3.5S18 8.5 18 8.5" />
+                    </svg>
+
+                </button>
+                <div class="text-[16px]  font-medium text-center text-black ">Already have an
+                    account? <a href="/login-user" class="capitalize text-fuchsia-600 font-bold">login</a></div>
             </form>
             <div id="forSignupFoot"
-                class="w-full border-t h-fit flex flex-col gap-3 mt-3 items-center border-neutral-400 md:border-stone-800">
-                <p
-                    class="-translate-y-3  w-fit px-3.5 md:bg-black bg-neutral-100 text-black md:text-gray-300 font-medium capitalize">
+                class="w-full border-t border-stone-500 h-fit flex flex-col gap-3 mt-3 items-center ">
+                <p class="translate-y-[-60%] w-fit px-3.5 bg-white  text-black  font-medium capitalize">
                     or</p>
                 <section class="flex w-full justify-center px-[3%] items-center gap-7 md:gap-10">
                     <div
-                        class="rounded-lg text-stone-400 px-7 max-md:w-[50%] py-2 md:py-1.5 bg-neutral-300 md:bg-stone-800  flex justify-center items-center">
+                        class=" bg-white active:scale-90 transition-all duration-200 ease-in cursor-pointer w-full capitalize  border border-stone-600  rounded-4xl h-11.5 flex justify-center items-center gap-2.5">
                         <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
                             viewBox="0 0 48 48">
                             <path d="M0 0h48v48H0z" fill="none" />
@@ -197,38 +233,11 @@
                             <path fill="#1976D2"
                                 d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917" />
                         </svg>
+                        <p class="text-[16px] font-medium  text-black">sign up with google</p>
 
 
                     </div>
-                    <div
-                        class="rounded-lg text-stone-400 px-7 max-md:w-[50%] py-2 md:py-1.5 bg-neutral-300 md:bg-stone-800  flex justify-center items-center">
-                        <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="256" height="256"
-                            viewBox="0 0 256 256">
-                            <path d="M0 0h256v256H0z" fill="none" />
-                            <path fill="#1877f2"
-                                d="M256 128C256 57.308 198.692 0 128 0S0 57.308 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.348-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.959 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445" />
-                            <path fill="#fff"
-                                d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A129 129 0 0 0 128 256a129 129 0 0 0 20-1.555V165z" />
-                        </svg>
 
-
-                    </div>
-                    <!-- <button
-                        class="rounded-xl px-7 py-1.5 bg-stone-800 text-stone-300  flex justify-center items-center">
-                        <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            viewBox="0 0 16 16">
-                            <path d="M0 0h16v16H0z" fill="none" />
-                            <defs>
-                                <path id="SVG67go7b2R"
-                                    d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258s.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854s-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116c-.508.139-1.653.589-1.968.607c-.316.018-1.256-.522-2.267-.665c-.647-.125-1.333.131-1.824.328c-.49.196-1.422.754-2.074 2.237c-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472c.357.013 1.061.154 1.782.539c.571.197 1.111.115 1.652-.105c.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282" />
-                            </defs>
-                            <g fill="currentColor">
-                                <use href="#SVG67go7b2R" />
-                                <use href="#SVG67go7b2R" />
-                            </g>
-                        </svg>
-
-                    </button> -->
                 </section>
             </div>
 
@@ -252,15 +261,6 @@
         if (smallScreen) {
             console.log('qyjghkdvkaufjb ')
         }
-
-        // if (smallScreen) {
-        //     window.addEventListener('pageshow', () => {
-        //         setTimeout(() => {
-
-        //             smSignup.classList.replace('max-md:translate-y-full', 'max-md:signupAnim')
-        //         }, 1000)
-        //     })
-        // }
         // ====== input signup regex =======
         firstName.addEventListener('input', function () {
             this.value = this.value
