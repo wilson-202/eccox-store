@@ -12,7 +12,7 @@ class ForSignUP {
       const result = await pool.query(`SELECT email FROM users WHERE email = $1`, [email]);
       if (result.rows.length > 0) {
         // console.log(result);
-        return res.status(409).json({ error: "email already exists " });
+        return res.status(409).json({ error: "Account already exists, Please Login. " });
       }
       const hashedPassword = await bcrypt.hash(password, 12);
       const userResult = await pool.query(`INSERT INTO users (firstName, lastName, email, password) VALUES($1,$2,$3,$4) RETURNING id, email`, [firstName, lastName, email, hashedPassword]);
