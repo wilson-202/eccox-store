@@ -8,11 +8,10 @@
     <title>reset password</title>
 </head>
 
-<body
-    style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-    <main class="h-screen overflow-hidden w-full ">
+<body>
+    <main class="h-dvh font-custom2 overflow-hidden w-full ">
         <form action="" id="resetForm" class="flex justify-start relative gap-3.5 w-full flex-col h-full">
-            <div id="messageBox"
+            <!-- <div id="messageBox"
                 class="rounded-[21px] flex  customCubic border-2 border-red-800 p-0.5 right-[2%] top-[7%]  text-stone-100 font-semibold  tran content-center text-left duration-150 transition-all   absolute z-16   h-19 w-[90%] md:w-[26%]">
                 <div id="messageTextCont"
                     class="w-full flex justify-between gap-2 px-2.5 items-center bg-red-500 shadow-red-600 h-full rounded-2xl ">
@@ -36,7 +35,7 @@
 
 
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="absolute md:top-2.5 max-md:bottom-[9%] max-md:right-[19%] md:right-4">
@@ -46,9 +45,7 @@
             <div class="absolute bottom-3 text-sm md:left-3 max-md:left-[30%] text-stone-700">
                 Copyright © 2026
             </div>
-            <!-- <div class="absolute top-3 left-3 font-bold text-2xl text-black">
-                <p>Eccox store</p>
-            </div> -->
+
             <div class="flex justify-center items-center ">
                 <img class="size-80"
                     src="hand-drawn-illustration-of-doodle-wood-road-signs-and-arrows-free-vector (1).jpg" alt="">
@@ -63,8 +60,10 @@
 
                     <label for="forEmail" class="capitalize mx-5 font-semibold">email</label>
                     <input
-                        class="h-11 rounded-4xl px-4 border-2 border-stone-300 w-full focus:outline-none focus:border-2 focus:border-fuchsia-600"
+                        class="h-11 rounded-4xl px-4 border-2 border-stone-300 w-full focus:outline-none placeholder:text-stone-400 focus:border-2 focus:border-fuchsia-600"
                         type="text" name="" placeholder="e.g username@eccox.com" id="forEmail">
+                    <span id="emailError"
+                        class="error-text max-md:px-[2%] text-red-500 text-[15px] text-nowrap hidden"></span>
                 </div>
 
                 <button id="submitBtn"
@@ -94,24 +93,32 @@
         const messageTextCont = document.getElementById('messageTextCont')
         const closeToastError = document.getElementById('closeToastError')
         const submitBtn = document.getElementById('submitBtn')
-
+        const emailError = document.getElementById('emailError')
         forEmail.addEventListener('input', function () {
+
+            if (forEmail.classList.contains('border-red-500')) {
+                forEmail.classList.replace('border-red-500', 'border-stone-300')
+                forEmail.classList.replace('placeholder:text-red-500', 'placeholder:text-stone-400')
+            }
+            document.getElementById('emailError').style.display = 'none';
+
+
             this.value = this.value
-                .replace(/[^a-zA-Z@_.0-9\-]/g, '')
+                .replace(/\s/g, '')
         })
         const messageBox = document.getElementById('messageBox')
 
         resetForm.addEventListener('submit', async (event) => {
             event.preventDefault()
-            if (!navigator.onLine) {
-                messageBox.classList.replace('tran', 'translate-x-0')
-                closeToast()
-                forEmail.classList.add('shake')
-                setTimeout(() => {
-                    forEmail.classList.remove('shake')
-                }, 200)
-                return messageText.innerText = 'Network error. Check your connection and try again.'
-            }
+            // if (!navigator.onLine) {
+            //     messageBox.classList.replace('tran', 'translate-x-0')
+            //     closeToast()
+            //     forEmail.classList.add('shake')
+            //     setTimeout(() => {
+            //         forEmail.classList.remove('shake')
+            //     }, 200)
+            //     return messageText.innerText = 'Network error. Check your connection and try again.'
+            // }
 
 
             submitBtn.disabled = true
@@ -131,41 +138,64 @@
                 })
 
                 const errorJson = await response.json()
-                if (!response.ok) {
-                    messageBox.classList.replace('tran', 'translate-x-0')
-                    messageTextCont.classList.remove('bg-green-600', 'shadow-green-600')
-                    closeToast()
-                    const clearmessage = errorJson.error || errorJson.errors[0].replace(/['"]/g, '')
-                    messageText.innerText = clearmessage
-                } else {
+                if (response.status === 400 && errorJson.code === "VALIDATION_ERROR") {
+                    document.querySelectorAll('.error-text').forEach(el => {
+                        el.innerText = '';
+                        el.style.display = 'none';
+                    });
+
+                    Object.keys(errorJson.errors).forEach(fieldName => {
+                        const rawMessage = errorJson.errors[fieldName];
+                        const cleanMessage = rawMessage.replace(/['"]/g, ''); // Removes Joi quotes
+                        const errorElement = document.getElementById(`${fieldName}Error`);
+                        if (errorElement) {
+                            errorElement.innerText = cleanMessage;
+                            errorElement.style.display = 'block';
+
+                            if (forEmail.classList.contains('border-stone-300')) {
+                                forEmail.classList.remove('border-stone-300', 'placeholder:text-stone-400')
+                                forEmail.classList.add('border-red-500', 'placeholder:text-red-500')
+                                setTimeout(() => {
+                                    forEmail.classList.add('shake2')
+                                    setTimeout(() => {
+                                        forEmail.classList.remove('shake2')
+                                    }, 600)
+                                }, 100)
+                            }
+                        }
+
+                    });
+                }
+
+
+                if ((response.status === 401 && errorJson.error === 'Account not Found') || (response.status === 403 && errorJson.error === 'Email has not been verified, Check your Email ')) {
+                    emailError.textContent = errorJson.error;
+                    emailError.style.display = 'block';
+                     if (forEmail.classList.contains('border-stone-300')) {
+                                forEmail.classList.remove('border-stone-300', 'placeholder:text-stone-400')
+                                forEmail.classList.add('border-red-500', 'placeholder:text-red-500')
+                                setTimeout(() => {
+                                    forEmail.classList.add('shake2')
+                                    setTimeout(() => {
+                                        forEmail.classList.remove('shake2')
+                                    }, 600)
+                                }, 100)
+                            }
+                }
+
+                if (response.ok) {
                     window.location = `/verify-otp?email=${forEmail.value}`
                 }
 
             } catch (error) {
                 console.log(error)
-                messageBox.classList.replace('tran', 'translate-x-0')
-                closeToast()
-                messageText.innerText = 'Network error. Please check your connection and try again.'
-            }
+                }
 
             finally {
                 submitBtn.disabled = false
                 submitBtn.textContent = 'Send Code'
             }
         })
-
-
-        closeToastError.addEventListener('click', () => {
-            messageBox.classList.replace('translate-x-0', 'tran')
-
-        })
-        function closeToast() {
-            setTimeout(() => {
-                messageBox.classList.replace('translate-x-0', 'tran')
-            }, 4000)
-        }
-
-
     </script>
 
 </body>
